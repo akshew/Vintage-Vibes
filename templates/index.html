@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="landing-container">
+    <div class="intro-text">
+        <h1>Welcome to Vintage Vibes</h1>
+        <p>Step into a world of nostalgia where every moment is captured with a touch of vintage charm.</p>
+    </div>
+
+    <div class="feature-buttons">
+        <a href="/photobooth" class="square-button">
+            <i data-feather="camera"></i>
+            <span>Photo Booth</span>
+            <p>Capture moments with retro flair</p>
+        </a>
+        <a href="/blog" class="square-button">
+            <i data-feather="edit"></i>
+            <span>Anonymous Blog</span>
+            <p>Share thoughts freely</p>
+        </a>
+        <a href="/gifts" class="square-button">
+            <i data-feather="gift"></i>
+            <span>Gift Ideas</span>
+            <p>AI-powered gift suggestions</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

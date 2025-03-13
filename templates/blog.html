@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="blog-container">
+    <div class="posts">
+        {% for post in posts %}
+        <div class="post-box">
+            <div class="post-content">{{ post.content }}</div>
+            <div class="post-actions">
+                <span class="timestamp">{{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</span>
+                <div class="action-buttons">
+                    <button class="box-btn" onclick="showReplyForm('{{ post._id }}')" title="Replies">
+                        <i data-feather="message-circle"></i>
+                        <span>{{ post.replies|length }}</span>
+                    </button>
+                </div>
+            </div>
+            <div id="reply-{{ post._id }}" class="replies" style="display: none;">
+                {% for reply in post.replies %}
+                <div class="reply-box">
+                    <div class="reply-text">{{ reply.content }}</div>
+                    <span class="timestamp">{{ reply.timestamp.strftime('%Y-%m-%d %H:%M') }}</span>
+                </div>
+                {% endfor %}
+                <form class="reply-form" onsubmit="submitReply(event, '{{ post._id }}')">
+                    <input type="text" name="content" placeholder="Write a reply..." required>
+                    <button type="submit" class="box-btn">
+                        <i data-feather="send"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="write-post">
+        <form id="post-form" action="/blog/post" method="POST">
+            <input type="text" name="content" placeholder="What's happening?" required>
+            <button type="submit" title="Post">
+                <i data-feather="send"></i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/blog.js') }}"></script>
+{% endblock %}

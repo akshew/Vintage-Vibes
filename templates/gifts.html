@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="gifts-container">
+    <div class="gift-form">
+        <h2>Find the Perfect Gift</h2>
+        <form id="gift-form">
+            <div class="form-group">
+                <label for="age">Recipient's Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="interests">Their Interests:</label>
+                <textarea id="interests" name="interests" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="occasion">Occasion:</label>
+                <select id="occasion" name="occasion" required>
+                    <option value="">Select an occasion</option>
+                    <option value="birthday">Birthday</option>
+                    <option value="anniversary">Anniversary</option>
+                    <option value="holiday">Holiday</option>
+                    <option value="graduation">Graduation</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <button type="submit" class="vintage-btn">Get Suggestions</button>
+        </form>
+    </div>
+
+    <div id="suggestion-result" class="suggestion-container" style="display: none;">
+        <h3>Your Gift Suggestion</h3>
+        <div id="suggestion-text"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/gifts.js') }}"></script>
+{% endblock %}

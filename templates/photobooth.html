@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="photobooth-container">
+    <div class="camera-container">
+        <video id="camera" autoplay playsinline></video>
+        <canvas id="photo-canvas" style="display: none;"></canvas>
+        <div class="controls">
+            <button id="capture-btn" class="vintage-btn">
+                <i data-feather="camera"></i> Capture
+            </button>
+            <button id="retake-btn" class="vintage-btn" style="display: none;">
+                <i data-feather="refresh-cw"></i> Retake
+            </button>
+            <button id="download-btn" class="vintage-btn" disabled>
+                <i data-feather="download"></i> Save
+            </button>
+        </div>
+    </div>
+    <div class="filters">
+        <button class="filter-btn" data-filter="normal">Normal</button>
+        <button class="filter-btn" data-filter="polaroid">Polaroid</button>
+        <button class="filter-btn" data-filter="vintage">Vintage</button>
+        <button class="filter-btn" data-filter="old-photo">Old Photo</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/photobooth.js') }}"></script>
+{% endblock %}
