@@ -54,15 +54,3 @@ The application is configured to run with gunicorn. Use the run button or execut
 ```
 gunicorn --bind 0.0.0.0:5000 main:app
 ```
-
-## 🐛 Troubleshooting
-
-If you encounter the "feather is not defined" error, make sure to properly include the Feather Icons library in the layout template.
-
-## 📝 License
-
-This project is open-source. Feel free to use, modify, and distribute as needed.
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome!
